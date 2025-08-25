@@ -1,2 +1,1 @@
 # docAI
-DocumentAI pipeline
