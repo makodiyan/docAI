@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup: install editable (libs + services)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath} -m pip install -e ./libs/file_name_check -e ./services/excel_preprocess",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Tests: pytest (services + libs)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath} -m pytest -q services/excel_preprocess/tests libs/file_name_check/tests",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Tests: pytest (pick file::test)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath} -m pytest -q ${input:testSpec}",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Format: black (services + libs)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath} -m black services libs",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: ruff check (services + libs)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath} -m ruff check services libs",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "testSpec",
+      "type": "promptString",
+      "description": "Enter pytest target (e.g. services/excel_preprocess/tests/test_main.py::test_something)"
+    }
+  ]
+}

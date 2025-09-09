@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "/usr/local/Caskroom/miniforge/base/envs/excel_preprocess/bin/python"
+	}
+}

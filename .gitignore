@@ -1,1 +1,32 @@
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Python/Conda
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments & build
+.env
 .venv/
+venv/
+conda-env/
+.envrc
+/build/
+dist/
+site/
+.coverage
+htmlcov/
+
+# Local data / logs / cache
+*.log
+.cache/

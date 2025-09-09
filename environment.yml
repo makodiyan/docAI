@@ -1,0 +1,20 @@
+# docAI/environment.yml
+name: docAI
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      # your runtime deps
+      - openpyxl
+
+      # editable installs for your monorepo packages (paths are relative to repo root)
+      - -e ./libs/file_name_check
+      - -e ./services/excel_preprocess
+
+      # dev tooling (optional but handy)
+      - pytest
+      - black
+      - ruff
+

@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "name": "🐍 Run excel_preprocess.main",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "excel_preprocess.main",
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true,
+      "console": "integratedTerminal",
+      "env": {
+        // add app env vars here if needed
+      }
+    },
+    {
+      "name": "🧪 Pytest: services + libs",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        "-q",
+        "services/excel_preprocess/tests",
+        "libs/file_name_check/tests"
+      ],
+      "env": {
+        // add test env vars here if needed
+      }
+    },
+    {
+      "name": "🧪 Pytest: pick a test (file::test)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": [
+        // Edit this path/spec before running, e.g.:
+        // "services/excel_preprocess/tests/test_main.py::test_something"
+        "services/excel_preprocess/tests/test_main.py::test_something"
+      ]
+    },
+    {
+      "name": "🐞 Attach to running Python (localhost:5678)",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": { "host": "localhost", "port": 5678 },
+      "pathMappings": [
+        { "localRoot": "${workspaceFolder}", "remoteRoot": "." }
+      ],
+      "justMyCode": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🚀 Run app + tests",
+      "configurations": ["🐍 Run excel_preprocess.main", "🧪 Pytest: services + libs"]
+    }
+  ]
+}
